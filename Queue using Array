@@ -1,0 +1,67 @@
+class Queue{
+    static int start=-1,end=-1;
+    static int n=6;
+    static int count=0;
+    static int[] queue=new int[6];
+    static void push(int ele)
+    {
+        if(n==count)
+        {
+            System.out.println("Queue is full");
+        }
+        else {
+            if (start == -1) {
+                start++;
+                end++;
+            } else {
+                 end= ((end + 1) % n);
+            }
+            count++;
+            queue[start] = ele;
+        }
+    }
+    static void pop()
+    {
+        if(count==0)
+        {
+            start=-1;
+            end=-1;
+            System.out.println("queue is empty");
+            return;
+        }
+        queue[start]=0;
+        start=(start+1)%n;
+        count--;}
+
+    static void display()
+    {
+        if(count==0)
+        {
+            System.out.println("Queue is empty");
+        }
+        for(int i:queue)
+        {
+            System.out.print(i+" ");
+        }
+    }
+    static void size()
+    {
+        System.out.println(count);
+    }
+    static void peek()
+    {
+        System.out.println(queue[start]);
+    }
+
+    public static void main(String[] args) {
+        push(4);
+        push(5);
+        push(5); push(5); push(5); push(5); push(5);
+pop();pop();pop();
+push(7);
+
+
+        display();
+
+    }
+}
