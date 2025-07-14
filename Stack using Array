@@ -1,0 +1,67 @@
+
+class ll
+{
+     static int top=-1;
+     static int[] stack=new int[10];
+    static void pop()
+    {
+        if(top== -1)
+        {
+            System.out.println("stack is empty");
+        }
+        else {
+            stack[top] = 0;
+            top-=1;
+        }
+    }
+    static void push(int ele)
+    {
+        if(top<10)
+        {
+            top++;
+            stack[top]=ele;
+        }
+        else{
+            System.out.println("stack overflow");
+        }
+    }
+    static void peek()
+    {
+        System.out.println();
+        System.out.println(stack[top]);
+    }
+    static void size()
+    {
+        System.out.println();
+        System.out.println(top+1);
+    }
+    static void display()
+    {
+        for(int i:stack)
+        {
+
+            System.out.print(i+" ");
+        }
+    }
+
+    public static void main(String[] args) {
+        push(4);
+        push(8);
+        display();
+        size();
+        pop();
+        display();
+        push(55);
+        push(66);
+        push(77);
+        push(88);
+        System.out.println();
+        display();
+        pop();
+        System.out.println();
+        display();
+        peek();
+
+    }
+}
+
