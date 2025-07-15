@@ -1,0 +1,71 @@
+class Node{
+    int data;
+    Node next;
+    Node(int data,Node next)
+    {
+        this.data=data;
+        this.next=next;
+    }
+    Node(int data)
+    {
+        this.data=data;
+        this.next=null;
+    }
+}
+
+
+class Queue{
+    static Node top=null;static Node end=null;static int size=0;
+    static void push(int data)
+    {
+        Node temp= new Node(data);
+        if(top==null)
+        {
+            top=temp;
+            end=temp;
+            size++;
+
+        }
+        else{
+            end.next=temp;
+            end=temp;
+            size++;
+        }
+    }
+    static void pop()
+    {
+        Node temp=top.next;
+        top.next=null;
+        top=temp;
+        size--;
+    }
+    static void size()
+    {
+        System.out.println("Size:"+size);
+    }
+    static void peek()
+    {
+        System.out.println("peek element"+top.data);
+    }
+    static void display()
+    {
+        while(top!=null)
+        {
+            System.out.print(top.data+" ");
+            top=top.next;
+        }
+    }
+    public static void main(String[] args) {
+        push(33);
+        push(44);
+        push(77);
+        pop();
+        push(88);
+        push(8);
+        pop();
+        peek();
+        size();
+
+        display();
+    }
+}
