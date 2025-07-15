@@ -1,0 +1,65 @@
+class Node{
+    int data;
+    Node next;
+    Node(int data,Node next)
+    {
+        this.data=data;
+        this.next=next;
+    }
+    Node(int data)
+    {
+        this.data=data;
+        this.next=null;
+    }
+}
+
+
+class Stack{
+    static Node top=null;static int size=0;
+static Node push(int data)
+{
+    Node temp=new Node(data);
+    temp.next=top;
+    top=temp;
+    size++;
+    return top;
+}
+static Node pop()
+{
+Node temp=top;
+top=top.next;
+temp.next=null;
+size--;
+return top;
+}
+static void peek()
+{
+    System.out.println(top.data);
+}
+static void size()
+{
+    System.out.println("Size"+size);
+}
+
+static void display()
+{
+   while(top!=null)
+    {
+        System.out.print(top.data+" ");
+        top=top.next;
+    }
+
+}
+
+
+    public static void main(String[] args) {
+        push(6);
+        push(5);
+        push(4);
+        push(7);
+        pop();
+        peek();
+       size();
+        display();
+    }
+}
