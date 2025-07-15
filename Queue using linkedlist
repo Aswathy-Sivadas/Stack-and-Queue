@@ -34,6 +34,10 @@ class Queue{
     }
     static void pop()
     {
+        if(top==null)
+        {
+            System.out.println("Queue is empty");
+        }
         Node temp=top.next;
         top.next=null;
         top=temp;
